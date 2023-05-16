@@ -1,0 +1,12 @@
+apiVersion: curator.curator/v1alpha1
+kind: Report
+metadata:
+  labels:
+    app.kubernetes.io/name: report
+    app.kubernetes.io/instance: report-sample
+    app.kubernetes.io/part-of: curator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: curator
+  name: report-sample
+spec:
+  # TODO(user): Add fields here

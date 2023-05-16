@@ -1,0 +1,46 @@
+domain: curator
+layout:
+- go.kubebuilder.io/v3
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: curator
+repo: github.com/TRudenko22/Curator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: curator
+  group: curator
+  kind: FetchData
+  path: github.com/TRudenko22/Curator/api/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: curator
+  group: curator
+  kind: Report
+  path: github.com/TRudenko22/Curator/api/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: curator
+  group: curator
+  kind: CuratorConfig
+  path: github.com/TRudenko22/Curator/api/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: curator
+  group: curator
+  kind: ReportAPI
+  path: github.com/TRudenko22/Curator/api/v1alpha1
+  version: v1alpha1
+version: "3"
