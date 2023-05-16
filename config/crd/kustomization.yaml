@@ -4,7 +4,6 @@
 resources:
 - bases/curator.curator_fetchdata.yaml
 - bases/curator.curator_reports.yaml
-- bases/curator.curator_curatorconfigs.yaml
 - bases/curator.curator_reportapis.yaml
 #+kubebuilder:scaffold:crdkustomizeresource
 
@@ -13,7 +12,6 @@ patchesStrategicMerge:
 # patches here are for enabling the conversion webhook for each CRD
 #- patches/webhook_in_fetchdata.yaml
 #- patches/webhook_in_reports.yaml
-#- patches/webhook_in_curatorconfigs.yaml
 #- patches/webhook_in_reportapis.yaml
 #+kubebuilder:scaffold:crdkustomizewebhookpatch
 
@@ -21,7 +19,6 @@ patchesStrategicMerge:
 # patches here are for enabling the CA injection for each CRD
 #- patches/cainjection_in_fetchdata.yaml
 #- patches/cainjection_in_reports.yaml
-#- patches/cainjection_in_curatorconfigs.yaml
 #- patches/cainjection_in_reportapis.yaml
 #+kubebuilder:scaffold:crdkustomizecainjectionpatch
 
