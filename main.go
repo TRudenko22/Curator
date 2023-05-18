@@ -84,11 +84,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	port, err := strconv.Atoi(os.Getenv(dbPort))
-	if err != nil {
-		setupLog.Error(err, "unable to convert port value")
-		os.Exit(1)
-	}
+	//port, err := strconv.Atoi(os.Getenv(dbPort))
+	//if err != nil {
+	//	setupLog.Error(err, "unable to convert port value")
+	//	os.Exit(1)
+	//}
 
 	config, _ := pgx.ParseConfig("")
 	config.Host = os.Getenv(dbHost)
