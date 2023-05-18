@@ -92,7 +92,7 @@ func main() {
 
 	config, _ := pgx.ParseConfig("")
 	config.Host = os.Getenv(dbHost)
-	config.Port = uint16(port)
+	config.Port = uint16(5432)
 	config.User = os.Getenv(dbUser)
 	config.Password = os.Getenv(dbPassword)
 	config.Database = os.Getenv(dbName)
