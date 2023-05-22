@@ -25,16 +25,8 @@ jobs:
         with:
           go-version: 1.20
 
-      - name: Quay Login
-        uses: docker/login-action@v1
-        with:
-          registry: quay.io
-          username: ${{ env.QUAY_USERNAME }}
-          password: ${{ env.QUAY_PASSWORD }}
-
-      - name: Build and Push
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: quay.io/${{ env.REPO }}/${{ env.IMAGE }}:${{ env.TAG }}
-          context: .
+      - name: Build and push 
+        run: |
+          docker login -u ${{ env.QUAY_USERNAME }} -p ${{ env.QUAY_PASSWORD }} quay.io
+          make docker-build IMG=quay.io/${{ env.REPO }}/${{ env.IMAGE }}:${{ env.TAG }}
+          make docker-push  IMG=quay.io/${{ env.REPO }}/${{ env.IMAGE }}:${{ env.TAG }}
