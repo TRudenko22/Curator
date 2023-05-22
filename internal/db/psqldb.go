@@ -8,13 +8,14 @@ import (
 )
 
 /*
-	This function has pre-defined queries which get called to create different tables and functions in the
-	psql DB that the controller is connected to.
+This function has pre-defined queries which get called to create different tables and functions in the
+psql DB that the controller is connected to.
 
-	params: DB connection for psql database
-	Return:
-		bool: returns true if the query passed successfully, false if it failed
-		error: nil if there isnt any error, else appropriate error message will be displayed
+params: DB connection for psql database
+Return:
+
+	bool: returns true if the query passed successfully, false if it failed
+	error: nil if there isnt any error, else appropriate error message will be displayed
 */
 func CreateTablesAndRoutines(db *pgx.Conn) (bool, error) {
 
