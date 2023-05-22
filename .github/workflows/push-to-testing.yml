@@ -27,6 +27,10 @@ jobs:
 
       - name: Build and push 
         run: |
+          make controller-gen
+          make envtest
+          make kustomize
+
           docker login -u ${{ env.QUAY_USERNAME }} -p ${{ env.QUAY_PASSWORD }} quay.io
           make docker-build IMG=quay.io/${{ env.REPO }}/${{ env.IMAGE }}:${{ env.TAG }}
           make docker-push  IMG=quay.io/${{ env.REPO }}/${{ env.IMAGE }}:${{ env.TAG }}
