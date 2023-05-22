@@ -1,14 +1,23 @@
 # curator
-// TODO(user): Add simple overview of use/purpose
+Curator (/ˈkyo͝orˌādər/) is an air-gapped infrastructure consumption analysis project for OpenShift Container Platform.
 
 ## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+Operator Curator is an air-gapped infrastructure consumption analysis tool for the Red Hat OpenShift Container Platform. Curator retrieves infrastructure utilization for the OpenShift Platform using Operator koku-metrics and provides users the ability to query the infrastructure utilization based on time period, namespace, and infrastructure parameters.
+
+Users can generate periodic standard and custom reports on infrastructure utilization, which are optionally delivered through automated emails. Curator also provides APIs to query the information utilization data that is stored in a database in the OpenShift cluster and it can also be used to feed data collected to any infrastructure billing system or business intelligence system. Additionally, Curator also provides administrators of the OpenShift cluster the option to back up their cluster infrastructure consumption data to S3-compatible storage.
 
 ## Getting Started
-You’ll need a Kubernetes cluster to run against. You can use [KIND](https://sigs.k8s.io/kind) to get a local cluster for testing, or run against a remote cluster.
+You'll need to have administrator access to an OpenShift v.4.5+ cluster to deploy Operator Curator. 
+For more information on the prerequisites, please view the Requirements section. 
+Once deployed, all the authorized users and systems will be able to view the infrastructure utilization of OpenShift.
+
 **Note:** Your controller will automatically use the current context in your kubeconfig file (i.e. whatever cluster `kubectl cluster-info` shows).
 
 ### Running on the cluster
+#### Pre-requisites
+- Admin access to OpenShift v.4.5+ 
+- [Koku Metrics Operator](https://dev.operatorhub.io/operator/koku-metrics-operator) installed on the cluster
+
 1. Install Instances of Custom Resources:
 
 ```sh
@@ -40,9 +49,6 @@ UnDeploy the controller to the cluster:
 ```sh
 make undeploy
 ```
-
-## Contributing
-// TODO(user): Add detailed information on how you would like others to contribute to this project
 
 ### How it works
 This project aims to follow the Kubernetes [Operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)
