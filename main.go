@@ -18,7 +18,6 @@ import (
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
-	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	curatorv1alpha1 "github.com/TRudenko22/Curator/api/v1alpha1"
@@ -133,14 +132,14 @@ func main() {
 	}
 	//+kubebuilder:scaffold:builder
 
-	if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {
-		setupLog.Error(err, "unable to set up health check")
-		os.Exit(1)
-	}
-	if err := mgr.AddReadyzCheck("readyz", healthz.Ping); err != nil {
-		setupLog.Error(err, "unable to set up ready check")
-		os.Exit(1)
-	}
+	//if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {
+	//	setupLog.Error(err, "unable to set up health check")
+	//	os.Exit(1)
+	//}
+	//if err := mgr.AddReadyzCheck("readyz", healthz.Ping); err != nil {
+	//	setupLog.Error(err, "unable to set up ready check")
+	//	os.Exit(1)
+	//}
 
 	go func() {
 		if err := runServer(context.Background(), db, setupLog, serverPort, mgr.GetClient()); err != nil {
