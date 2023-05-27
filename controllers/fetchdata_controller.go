@@ -102,23 +102,6 @@ func NewCronJob(m *curatorv1alpha1.FetchData, scheme *runtime.Scheme) *batchv1.C
 									},
 								},
 							},
-							Affinity: &corev1.Affinity{
-								NodeAffinity: &corev1.NodeAffinity{
-									RequiredDuringSchedulingIgnoredDuringExecution: &corev1.NodeSelector{
-										NodeSelectorTerms: []corev1.NodeSelectorTerm{
-											{
-												MatchExpressions: []corev1.NodeSelectorRequirement{
-													{
-														Key:      "app",
-														Operator: corev1.NodeSelectorOpIn,
-														Values:   []string{"koku-metrics-operator"},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
 							Containers: []corev1.Container{
 								{
 									Name:  "crdunzip",
